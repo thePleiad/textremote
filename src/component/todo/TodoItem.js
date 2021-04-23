@@ -7,8 +7,9 @@ const TodoItem = ({name, deleteData, id, editData}) => {
 
     useEffect(() => {
         setValue(name)
-    })
+    },[name])
     const save = () => {
+
         editData(id, value)
         setShow(!show)
     }
@@ -16,7 +17,7 @@ const TodoItem = ({name, deleteData, id, editData}) => {
     const btn = <button className='btn' onClick={()=>save(id,value)}>Save</button>
     return (
         <div className='form'>
-                <input type="text" value={!show ? value : name} disabled={show} onChange={(e) => setValue(e.target.value)} />
+                <input type="text" value={value} disabled={show} onChange={(e) => setValue(e.target.value)} />
                 <button className='btn' onClick={() => deleteData(id)}>Remove</button>
                 <button className='btn' onClick={() => setShow(!show)}>{show ? "Edit" : "Cancel"}</button>
                 {!show ? btn : ''}

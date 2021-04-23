@@ -9,13 +9,20 @@ const RenderTodo = () => {
 
   const deleteData = (id) => {
     let filteredData = data.filter(todo => todo.id !== id)
+    console.log(filteredData);
     setData(filteredData);
   }
+
 
   const editData = (id,value) => {
     const itemIndex = data.findIndex(todo => todo.id === id)
     const newData = [...data]
+
     newData[itemIndex].name = value
+
+    
+
+    console.log(data);
     setData(newData)
   }
 
